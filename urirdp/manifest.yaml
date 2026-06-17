@@ -1,0 +1,37 @@
+id: urirdp
+version: 1
+scheme: rdp
+description: RDP session and X11 display queries for urirdp-docker.
+uri_patterns:
+  - pattern: rdp://{host}/session/query/status
+    kind: query
+    operation: rdp.session.status
+    side_effects: false
+    approval: not_required
+  - pattern: rdp://{host}/session/query/display
+    kind: query
+    operation: rdp.session.display
+    side_effects: false
+    approval: not_required
+  - pattern: rdp://{host}/display/query/status
+    kind: query
+    operation: rdp.display.status
+    side_effects: false
+    approval: not_required
+  - pattern: rdp://{host}/session/command/prepare-target
+    kind: command
+    operation: rdp.session.prepare_target
+    side_effects: true
+    approval: required
+  - pattern: rdp://{host}/session/command/dismiss-target
+    kind: command
+    operation: rdp.session.dismiss_target
+    side_effects: true
+    approval: required
+handlers:
+  python:
+    rdp.session.status: python://urirdp.handlers:status
+    rdp.session.display: python://urirdp.handlers:display
+    rdp.display.status: python://urirdp.handlers:display_status
+    rdp.session.prepare_target: python://urirdp.handlers:prepare_target
+    rdp.session.dismiss_target: python://urirdp.handlers:dismiss_target
