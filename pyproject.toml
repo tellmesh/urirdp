@@ -9,13 +9,12 @@ description = "rdp:// URI capability pack for RDP/X11 desktop automation"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "Apache-2.0"
-dependencies = ["urisysedge>=0.1.0"]
+dependencies = ["uricore>=0.1.8"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
 
 [tool.uv.sources]
-urisysedge = { path = "../urisysedge", editable = true }
 
 [tool.setuptools.packages.find]
 where = ["."]

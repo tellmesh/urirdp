@@ -305,7 +305,7 @@ from __future__ import annotations
 
 from importlib.resources import files
 
-from urisysedge.manifest import register_manifest_file
+from uri_control.edge.manifest import register_manifest_file
 
 
 def manifest_path():
